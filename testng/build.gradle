@@ -1,0 +1,27 @@
+apply plugin: 'java'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ext{
+  testNGVersion = '6.8.21'
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  testCompile "org.testng:testng:$testNGVersion"
+}
+
+test {
+  useTestNG()
+
+  testLogging {
+    events "passed", "skipped", "failed"
+  }
+
+  reports {
+    html.enabled = true
+  }
+}

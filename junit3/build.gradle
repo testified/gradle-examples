@@ -1,0 +1,21 @@
+apply plugin: 'java'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ext{
+  junitVersion= '3.8.2'
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  testCompile "junit:junit:$junitVersion"
+}
+
+test {
+  testLogging {
+    events "passed", "skipped", "failed"
+  }
+}
